@@ -79,7 +79,7 @@ apply plugin: "kotlin-android-extensions"
 project.ext.react = [
         enableHermes      : false, // clean and rebuild if changing
         // quasi-unstable: see commits 8f8a266af and 833d083a9
-        jsBundleDirRelease: "$buildDir/intermediates/merged_assets/release/out"
+        jsBundleDirRelease: "$buildDir/intermediates/assets/release/mergeReleaseAssets"
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -147,8 +147,8 @@ android {
         applicationId "com.zulipmobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 223
-        versionName "27.223"
+        versionCode 228
+        versionName "27.228"
     }
     signingConfigs {
         // The RN v0.60 template app suggests configuring a debug
