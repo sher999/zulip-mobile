@@ -675,16 +675,15 @@ const ComposeBox: React$AbstractComponent<Props, ImperativeHandle> = forwardRef(
           borderWidth: 0,
           borderRadius: 5,
 
-          marginBottom: 8,
           ...inputMarginPadding,
           backgroundColor,
-
+          
           // This is a really dumb hack to work around
           // https://github.com/facebook/react-native/issues/16405.
           // Someone suggests in that thread that { position: absolute,
           // zIndex: -1 } will work, which it does not (the border of the
           // TextInput is still visible, even with very negative zIndex
-          // values). Someone else suggests { transform: [{scale: 0}] }
+          // values). Someone else suggests { transform: [{scale: 0}] }`
           // (https://stackoverflow.com/a/49817873), which doesn't work
           // either. However, a combinarion of the two of them seems to
           // work.
@@ -694,6 +693,7 @@ const ComposeBox: React$AbstractComponent<Props, ImperativeHandle> = forwardRef(
           // These border attributes override styles set in <Input />.
           borderWidth: 0,
           borderRadius: 5,
+          marginBottom: 8,
 
           fontSize: 15,
           flexShrink: 1,
@@ -753,6 +753,18 @@ const ComposeBox: React$AbstractComponent<Props, ImperativeHandle> = forwardRef(
       >
         <View style={styles.composeInputs}>
           <Input
+            multiline
+            style={styles.composeTextInput}
+            underlineColorAndroid="transparent"
+            placeholder={placeholder}
+            defaultValue={messageInputValue}
+            autoFocus={autoFocusMessage}
+            textInputRef={messageInputRef}
+            {...messageInputCallbacks}
+            onBlur={handleMessageBlur}
+            onFocus={handleMessageFocus}
+          />
+          <Input
             style={styles.topicInput}
             autoCapitalize="none"
             underlineColorAndroid="transparent"
@@ -767,18 +779,6 @@ const ComposeBox: React$AbstractComponent<Props, ImperativeHandle> = forwardRef(
             onSubmitEditing={() => messageInputRef.current?.focus()}
             blurOnSubmit={false}
             returnKeyType="next"
-          />
-          <Input
-            multiline
-            style={styles.composeTextInput}
-            underlineColorAndroid="transparent"
-            placeholder={placeholder}
-            defaultValue={messageInputValue}
-            autoFocus={autoFocusMessage}
-            textInputRef={messageInputRef}
-            {...messageInputCallbacks}
-            onBlur={handleMessageBlur}
-            onFocus={handleMessageFocus}
           />
           <ComposeMenu
             destinationNarrow={destinationNarrow}

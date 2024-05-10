@@ -348,6 +348,7 @@ export default function MessageList(outerProps: OuterProps): React.Node {
       doNotMarkMessagesAsRead,
       _,
     } = props;
+    console.log('asdasfasfas',JSON.stringify(messageListElementsForShownMessages))
     const contentHtml = messageListElementsForShownMessages
       .map(element => messageListElementHtml({ backgroundData, element, _ }))
       .join('');
