@@ -40,6 +40,29 @@ It doesn't include
 ## Unreleased
 
 
+## 27.229 (2024-06-12)
+
+### Highlights for users
+
+* Support for topic permalinks, a feature coming up in Zulip Server 9.0.
+  (#5866)
+* Updated translations for Arabic, Belarusian, Bulgarian, Danish, Finnish,
+  French, German, Italian, Japanese, Persian, and Russian. Thanks as always
+  to our kind volunteer translators!
+
+Plus other fixes and improvements for your Zulip experience.
+
+
+### Highlights for developers
+
+* Updated CocoaPods to 1.15.2. (PR #5873)
+
+* We now parse the `/with/` operator in narrow links (topic permalinks).
+  (#5866)
+
+* Resolved issues: PR #5873, #5866
+
+
 ## 27.228 (2024-05-01)
 
 ### Highlights for users, vs. v27.225 (last prod release)
