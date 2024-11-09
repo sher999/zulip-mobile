@@ -147,8 +147,8 @@ android {
         applicationId "com.zulipmobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 230
-        versionName "27.230"
+        versionCode 231
+        versionName "27.231"
     }
     signingConfigs {
         // The RN v0.60 template app suggests configuring a debug
@@ -234,6 +234,14 @@ dependencies {
 
     // For animated GIF support:
     implementation "com.facebook.fresco:animated-gif:${rnProperties.get('FRESCO_VERSION')}"
+
+    implementation('com.facebook.soloader:soloader') {
+        version {
+            // The fix for #5901, resolving Google Play's warning
+            // that we were using an old buggy version (0.10.3).
+            strictly '0.10.4'
+        }
+    }
 
     // ----------------------------------------
     // Dependencies from RN upstream, in the template app
